@@ -1,6 +1,6 @@
 %define	major 2
 %define apiver 2.0
-%define libname %mklibname %{name} %{apiver} %{major}
+%define libname %mklibname gmime %{apiver} %{major}
 %define develname %mklibname %{name} -d
 
 %define _gtkdocdir	%{_datadir}/gtk-doc/html
@@ -8,19 +8,16 @@
 
 %define _requires_exceptions libgmime
 Summary:		The libGMIME library
-Name:			gmime
+Name:			gmime2.2
 Version:		2.2.23
 Release:		%mkrel 1
 License:		LGPLv2+
 Group:			System/Libraries
 URL:			http://spruce.sourceforge.net/gmime
 Source0:		http://spruce.sourceforge.net/gmime/sources/v2.2/gmime-%{version}.tar.bz2
+Patch: gmime-2.2.23-format-strings.patch
 BuildRequires:		glib2-devel
-BuildRequires:		gtk-doc
 BuildRequires:		libz-devel
-BuildRequires:		mono-devel
-BuildRequires:		gtk-sharp2-devel
-BuildRequires:		gtk-sharp2
 Buildroot:		%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -30,6 +27,7 @@ This library allows you to manipulate MIME messages.
 Summary:	Utilities using the libGMIME library
 Group:		File tools
 Requires:	%{libname} = %{version}-%{release}
+Conflicts: gmime-utils
 
 %description -n %{name}-utils
 This package contains gmime-uudecode and gmime-uuencode and will 
@@ -39,8 +37,6 @@ used instead of uudecode and uuencode from the sharutils package.
 %package -n %{libname}
 Summary:	The libGMIME library
 Group:		System/Libraries
-Obsoletes:	%mklibname %{name} 2.0
-Provides:	%mklibname %{name} 2.0
 Provides:	lib%{name} = %{version}-%{release}
 
 %description -n %{libname}
@@ -49,33 +45,22 @@ This library allows you to manipulate MIME messages.
 %package -n %{develname}
 Summary:	Development library and header files for the lib%{name} library
 Group:		Development/C
-Provides:	lib%{name}-devel
-Provides:	%{name}-devel
+Provides:	lib%{name}-devel = %version-%release
 Requires:	%{libname} = %{version}-%{release}
-Obsoletes:	%mklibname %{name} 2.0 -d
-Provides:	%mklibname %{name} 2.0 -d
 
 %description -n %{develname}
 This package contains the lib%{name} development library and its header files.
 
-%package sharp
-Summary:	GMIME# bindings for mono
-Group:		System/Libraries
-Requires:	%{libname} = %{version}-%{release}
-
-%description sharp
-This library allows you to manipulate MIME messages.
-
 %prep
 
-%setup -q
+%setup -q -n gmime-%version
+%patch -p1
 
 %build
-#libtoolize --copy --force; aclocal; autoconf; automake
 
 %configure2_5x \
 	--with-html-dir=%{_gtkdocdir} \
-	--enable-gtk-doc
+	--disable-mono
 
 #gw parallel build broken in 2.1.15
 # (tpg) mono stuff doesn't like parallel build, this solves it
@@ -131,10 +116,3 @@ rm -f %{buildroot}%{_libdir}/gmimeConf.sh
 %{_libdir}/pkgconfig/gmime-2.0.pc
 %{_includedir}/*
 %doc %{_gtkdocdir}/*
-
-%files sharp
-%defattr(-,root,root)
-%{_prefix}/lib/mono/gac/%{name}-sharp
-%{_prefix}/lib/mono/%{name}-sharp
-%{_libdir}/pkgconfig/%{name}-sharp.pc
-%{_datadir}/gapi-2.0/gmime-api.xml
