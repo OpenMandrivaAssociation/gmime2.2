@@ -9,12 +9,12 @@
 %define _requires_exceptions libgmime
 Summary:		The libGMIME library
 Name:			gmime2.2
-Version:		2.2.23
+Version:		2.2.24
 Release:		%mkrel 1
 License:		LGPLv2+
 Group:			System/Libraries
 URL:			http://spruce.sourceforge.net/gmime
-Source0:		http://spruce.sourceforge.net/gmime/sources/v2.2/gmime-%{version}.tar.bz2
+Source0:		ftp://ftp.gnome.org/pub/GNOME/sources/gmime/gmime-%{version}.tar.bz2
 Patch: gmime-2.2.23-format-strings.patch
 BuildRequires:		glib2-devel
 BuildRequires:		libz-devel
