@@ -10,7 +10,7 @@
 Summary:		The libGMIME library
 Name:			gmime2.2
 Version:		2.2.26
-Release:		%mkrel 1
+Release:		%mkrel 2
 License:		LGPLv2+
 Group:			System/Libraries
 URL:			http://spruce.sourceforge.net/gmime
