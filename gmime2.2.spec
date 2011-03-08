@@ -9,8 +9,8 @@
 %define _requires_exceptions libgmime
 Summary:		The libGMIME library
 Name:			gmime2.2
-Version:		2.2.26
-Release:		%mkrel 2
+Version:		2.2.27
+Release:		%mkrel 1
 License:		LGPLv2+
 Group:			System/Libraries
 URL:			http://spruce.sourceforge.net/gmime
