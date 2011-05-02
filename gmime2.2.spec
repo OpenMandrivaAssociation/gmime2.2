@@ -10,7 +10,7 @@
 Summary:		The libGMIME library
 Name:			gmime2.2
 Version:		2.2.27
-Release:		%mkrel 1
+Release:		%mkrel 2
 License:		LGPLv2+
 Group:			System/Libraries
 URL:			http://spruce.sourceforge.net/gmime
@@ -108,7 +108,7 @@ rm -f %{buildroot}%{_libdir}/gmimeConf.sh
 %files -n %{develname}
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog PORTING README TODO
-%multiarch %{multiarch_bindir}/gmime-config
+%{multiarch_bindir}/gmime-config
 %{_bindir}/gmime-config
 %{_libdir}/lib*.a
 %{_libdir}/lib*.so
