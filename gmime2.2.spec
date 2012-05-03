@@ -17,7 +17,7 @@ URL:			http://spruce.sourceforge.net/gmime
 Source0:		ftp://ftp.gnome.org/pub/GNOME/sources/gmime/gmime-%{version}.tar.bz2
 Patch: gmime-2.2.23-format-strings.patch
 BuildRequires:		glib2-devel
-BuildRequires:		libzlib-devel
+BuildRequires:		zlib-devel
 Buildroot:		%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
