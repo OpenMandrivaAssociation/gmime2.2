@@ -112,7 +112,6 @@ rm -f %{buildroot}%{_libdir}/gmimeConf.sh
 %{_bindir}/gmime-config
 %{_libdir}/lib*.a
 %{_libdir}/lib*.so
-%{_libdir}/lib*.la
 %{_libdir}/pkgconfig/gmime-2.0.pc
 %{_includedir}/*
 %doc %{_gtkdocdir}/*
