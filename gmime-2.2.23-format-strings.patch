@@ -1,0 +1,48 @@
+diff -p -up gmime-2.2.23/gmime/gmime-gpg-context.c~ gmime-2.2.23/gmime/gmime-gpg-context.c
+--- gmime-2.2.23/gmime/gmime-gpg-context.c~	2008-05-28 02:35:08.000000000 +0200
++++ gmime-2.2.23/gmime/gmime-gpg-context.c	2009-05-07 09:15:37.000000000 +0200
+@@ -1496,7 +1496,7 @@ gpg_sign (GMimeCipherContext *context, c
+ 		diagnostics = gpg_ctx_get_diagnostics (gpg);
+ 		errno = save;
+ 		
+-		g_set_error (err, GMIME_ERROR, errno, diagnostics);
++		g_set_error (err, GMIME_ERROR, errno, "%s", diagnostics);
+ 		gpg_ctx_free (gpg);
+ 		
+ 		return -1;
+@@ -1670,7 +1670,7 @@ gpg_encrypt (GMimeCipherContext *context
+ 		diagnostics = gpg_ctx_get_diagnostics (gpg);
+ 		errno = save;
+ 		
+-		g_set_error (err, GMIME_ERROR, errno, diagnostics);
++		g_set_error (err, GMIME_ERROR, errno, "%s", diagnostics);
+ 		gpg_ctx_free (gpg);
+ 		
+ 		return -1;
+@@ -1720,7 +1720,7 @@ gpg_decrypt (GMimeCipherContext *context
+ 		diagnostics = gpg_ctx_get_diagnostics (gpg);
+ 		errno = save;
+ 		
+-		g_set_error (err, GMIME_ERROR, errno, diagnostics);
++		g_set_error (err, GMIME_ERROR, errno, "%s", diagnostics);
+ 		gpg_ctx_free (gpg);
+ 		
+ 		return -1;
+@@ -1767,7 +1767,7 @@ gpg_import_keys (GMimeCipherContext *con
+ 		diagnostics = gpg_ctx_get_diagnostics (gpg);
+ 		errno = save;
+ 		
+-		g_set_error (err, GMIME_ERROR, errno, diagnostics);
++		g_set_error (err, GMIME_ERROR, errno, "%s", diagnostics);
+ 		gpg_ctx_free (gpg);
+ 		
+ 		return -1;
+@@ -1820,7 +1820,7 @@ gpg_export_keys (GMimeCipherContext *con
+ 		diagnostics = gpg_ctx_get_diagnostics (gpg);
+ 		errno = save;
+ 		
+-		g_set_error (err, GMIME_ERROR, errno, diagnostics);
++		g_set_error (err, GMIME_ERROR, errno, "%s", diagnostics);
+ 		gpg_ctx_free (gpg);
+ 		
+ 		return -1;
