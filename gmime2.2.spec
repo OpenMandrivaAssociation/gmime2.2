@@ -10,14 +10,14 @@
 Summary:		The libGMIME library
 Name:			gmime2.2
 Version:		2.2.27
-Release:		%mkrel 3
+Release:		%mkrel 2
 License:		LGPLv2+
 Group:			System/Libraries
 URL:			http://spruce.sourceforge.net/gmime
 Source0:		ftp://ftp.gnome.org/pub/GNOME/sources/gmime/gmime-%{version}.tar.bz2
 Patch: gmime-2.2.23-format-strings.patch
 BuildRequires:		glib2-devel
-BuildRequires:		zlib-devel
+BuildRequires:		pkgconfig(zlib)
 Buildroot:		%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -115,3 +115,85 @@ rm -f %{buildroot}%{_libdir}/gmimeConf.sh
 %{_libdir}/pkgconfig/gmime-2.0.pc
 %{_includedir}/*
 %doc %{_gtkdocdir}/*
+
+
+%changelog
+* Mon May 02 2011 Oden Eriksson <oeriksson@mandriva.com> 2.2.27-2mdv2011.0
++ Revision: 661666
+- multiarch fixes
+
+* Tue Mar 08 2011 Götz Waschk <waschk@mandriva.org> 2.2.27-1
++ Revision: 642832
+- new version
+
+* Thu Dec 02 2010 Oden Eriksson <oeriksson@mandriva.com> 2.2.26-2mdv2011.0
++ Revision: 605462
+- rebuild
+
+* Fri Mar 26 2010 Götz Waschk <waschk@mandriva.org> 2.2.26-1mdv2010.1
++ Revision: 527719
+- update to new version 2.2.26
+
+* Sat Jan 30 2010 Götz Waschk <waschk@mandriva.org> 2.2.25-1mdv2010.1
++ Revision: 498628
+- update to new version 2.2.25
+
+* Wed Aug 12 2009 Götz Waschk <waschk@mandriva.org> 2.2.24-1mdv2010.0
++ Revision: 415706
+- new version
+- update source URL
+
+* Thu May 07 2009 Götz Waschk <waschk@mandriva.org> 2.2.23-1mdv2010.0
++ Revision: 372830
+- fix format strings
+- disable csharp binding
+- import latest 2.2 release
+- new version
+- new version
+- new version
+- new version
+- new version
+- new version
+- new version
+- new version
+- new version
+- new version
+- new version
+- new version
+- new version
+- really fix gmime-sharp deps
+- fix deps of the sharp package
+- new version
+- fix buildrequires
+- new version
+- drop build dep on libunicode-devel
+- new version
+
+  + mandrake <mandrake@mandriva.com>
+    - %repsys markrelease
+      version: 2.2.23
+      release: 1mdv2009.3
+      revision: 284737
+      Copying 2.2.23-1mdv2009.0 to releases/ directory.
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+  + Tomasz Pawel Gajc <tpg@mandriva.org>
+    - fix obsoletes and provides for main library
+    - correct libification (wrong major)
+    - make use of %%major in file list
+    - remove buildrequires on auto* stuff
+    - add necessary provides/obsoletes
+    - use perl hack for parallel build
+    - fix file list
+    - new license policy
+    - new devel library policy
+    - fix mixture of tabs and spaces
+
