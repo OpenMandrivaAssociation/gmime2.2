@@ -6,11 +6,10 @@
 %define _gtkdocdir	%{_datadir}/gtk-doc/html
 %{expand:%%define _aclocaldir %(aclocal --print-ac-dir 2>/dev/null)}
 
-%define _requires_exceptions libgmime
 Summary:		The libGMIME library
 Name:			gmime2.2
 Version:		2.2.27
-Release:		%mkrel 2
+Release:		3
 License:		LGPLv2+
 Group:			System/Libraries
 URL:			http://spruce.sourceforge.net/gmime
