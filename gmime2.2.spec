@@ -63,7 +63,7 @@ This package contains the lib%{name} development library and its header files.
 
 #gw parallel build broken in 2.1.15
 # (tpg) mono stuff doesn't like parallel build, this solves it
-%(echo %make|perl -pe 's/-j\d+/-j1/g')
+%(echo %make CFLAGS='-UG_DISABLE_DEPRECATED' |perl -pe 's/-j\d+/-j1/g')
 
 %check
 make check
