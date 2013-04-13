@@ -2,7 +2,7 @@
 %define apiver 2.0
 %define libname %mklibname gmime %{apiver} %{major}
 %define develname %mklibname %{name} -d
-
+%define debug_package %{nil}
 %define _gtkdocdir	%{_datadir}/gtk-doc/html
 %{expand:%%define _aclocaldir %(aclocal --print-ac-dir 2>/dev/null)}
 
