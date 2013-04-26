@@ -1,4 +1,6 @@
 %define debug_package %{nil}
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+
 %define _gtkdocdir	%{_datadir}/gtk-doc/html
 %{expand:%%define _aclocaldir %(aclocal --print-ac-dir 2>/dev/null)}
 
@@ -14,7 +16,7 @@ Release:	3
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://spruce.sourceforge.net/gmime
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gmime/gmime-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gmime/%{url_ver}/gmime-%{version}.tar.bz2
 Patch0:		gmime-2.2.23-format-strings.patch
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(zlib)
