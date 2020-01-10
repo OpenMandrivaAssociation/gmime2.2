@@ -53,7 +53,7 @@ This package contains the lib%{name} development library and its header files.
 %prep
 
 %setup -qn gmime-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 %configure2_5x \
