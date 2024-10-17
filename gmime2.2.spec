@@ -15,7 +15,7 @@ Version:	2.2.27
 Release:	10
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://spruce.sourceforge.net/gmime
+Url:		https://spruce.sourceforge.net/gmime
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gmime/%{url_ver}/gmime-%{version}.tar.bz2
 Patch0:		gmime-2.2.23-format-strings.patch
 BuildRequires:	pkgconfig(glib-2.0)
