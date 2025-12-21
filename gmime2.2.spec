@@ -18,6 +18,11 @@ Group:		System/Libraries
 Url:		https://spruce.sourceforge.net/gmime
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gmime/%{url_ver}/gmime-%{version}.tar.bz2
 Patch0:		gmime-2.2.23-format-strings.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(zlib)
 
